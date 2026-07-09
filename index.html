@@ -6,267 +6,81 @@
   <title>gonggong-ai | Public Read-only AI Interface</title>
   <meta name="description" content="gonggong-ai is a public read-only AI interface for public-safe carryover context.">
   <style>
-    :root {
-      color-scheme: light;
-      --bg: #f7f7f4;
-      --paper: #ffffff;
-      --ink: #1f2933;
-      --muted: #5f6b76;
-      --line: #d7dce0;
-      --accent: #256f87;
-      --accent-dark: #174c5f;
-      --warning-bg: #fff7df;
-      --warning-line: #d59d24;
-      --soft: #eef5f7;
-      --green: #246b4f;
-      --blue: #2c5f86;
-      --orange: #8a5b16;
-      --red: #8a2f2f;
-      --radius: 8px;
-      --max: 1080px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      color: var(--ink);
-      background: var(--bg);
-    }
-
-    header {
-      background: var(--paper);
-      border-bottom: 1px solid var(--line);
-    }
-
-    main,
-    .header-inner {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .header-inner {
-      padding: 40px 0 28px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: 2.25rem;
-      line-height: 1.1;
-      letter-spacing: 0;
-    }
-
-    .subtitle {
-      margin: 10px 0 0;
-      color: var(--muted);
-      font-size: 1.1rem;
-    }
-
-    main {
-      padding: 28px 0 56px;
-    }
-
-    section {
-      margin: 24px 0;
-      padding: 24px;
-      background: var(--paper);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-    }
-
-    h2 {
-      margin: 0 0 14px;
-      font-size: 1.35rem;
-      line-height: 1.3;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      margin: 24px 0 8px;
-      font-size: 1.05rem;
-      letter-spacing: 0;
-    }
-
-    p {
-      margin: 10px 0;
-    }
-
-    ul,
-    ol {
-      margin: 10px 0 0;
-      padding-left: 1.3rem;
-    }
-
-    li {
-      margin: 5px 0;
-    }
-
-    code {
-      padding: 0.12rem 0.28rem;
-      border-radius: 4px;
-      background: #eef1f3;
-      font-family: ui-monospace, SFMono-Regular, Consolas, "Liberation Mono", monospace;
-      font-size: 0.92em;
-    }
-
-    .notice {
-      background: var(--warning-bg);
-      border-color: var(--warning-line);
-    }
-
-    .notice strong {
-      color: var(--red);
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 14px;
-      margin-top: 16px;
-    }
-
-    .item {
-      padding: 16px;
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: #fbfcfc;
-    }
-
-    .item h3 {
-      margin-top: 0;
-    }
-
-    .tag {
-      display: inline-block;
-      margin: 4px 6px 4px 0;
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: var(--soft);
-      color: var(--accent-dark);
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .tag.green {
-      background: #e7f3ed;
-      color: var(--green);
-    }
-
-    .tag.orange {
-      background: #fff1d9;
-      color: var(--orange);
-    }
-
-    .tag.red {
-      background: #f9e7e7;
-      color: var(--red);
-    }
-
-    .priority-list {
-      counter-reset: priority;
-      list-style: none;
-      padding-left: 0;
-    }
-
-    .priority-list li {
-      counter-increment: priority;
-      display: flex;
-      gap: 10px;
-      margin: 10px 0;
-    }
-
-    .priority-list li::before {
-      content: counter(priority);
-      flex: 0 0 28px;
-      height: 28px;
-      border-radius: 50%;
-      background: var(--accent);
-      color: white;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    footer {
-      width: min(var(--max), calc(100% - 32px));
-      margin: 0 auto;
-      padding: 0 0 48px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    @media (max-width: 640px) {
-      .header-inner {
-        padding-top: 28px;
-      }
-
-      h1 {
-        font-size: 1.85rem;
-      }
-
-      section {
-        padding: 18px;
-      }
-    }
+    :root { --bg:#f7f7f4; --paper:#fff; --ink:#1f2933; --muted:#5f6b76; --line:#d7dce0; --accent:#256f87; --warn:#fff7df; --warn-line:#d59d24; --soft:#eef5f7; --green:#246b4f; --orange:#8a5b16; --red:#8a2f2f; --max:1040px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+    header, section { background:var(--paper); border:1px solid var(--line); border-radius:8px; }
+    header, main, footer { width:min(var(--max),calc(100% - 32px)); margin:24px auto; }
+    header { padding:30px 24px; }
+    section { padding:22px; margin:18px 0; }
+    h1 { margin:0; font-size:2.1rem; letter-spacing:0; }
+    h2 { margin:0 0 12px; font-size:1.3rem; letter-spacing:0; }
+    h3 { margin:18px 0 6px; font-size:1.05rem; letter-spacing:0; }
+    p { margin:8px 0; }
+    a { color:var(--accent); }
+    code { background:#eef1f3; padding:0.12rem 0.3rem; border-radius:4px; }
+    ul, ol { padding-left:1.3rem; }
+    .subtitle, .muted, footer { color:var(--muted); }
+    .notice { background:var(--warn); border-color:var(--warn-line); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:12px; }
+    .card { border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfc; }
+    .tag { display:inline-block; margin:3px 4px 3px 0; padding:3px 8px; border-radius:999px; background:var(--soft); font-size:0.85rem; font-weight:600; }
+    .green { color:var(--green); background:#e7f3ed; }
+    .orange { color:var(--orange); background:#fff1d9; }
+    .red { color:var(--red); background:#f9e7e7; }
+    nav a { display:inline-block; margin:4px 8px 4px 0; padding:6px 10px; border:1px solid var(--line); border-radius:6px; background:#fbfcfc; text-decoration:none; }
   </style>
 </head>
 <body>
   <header>
-    <div class="header-inner">
-      <h1>gonggong-ai</h1>
-      <p class="subtitle">Public Read-only AI Interface / 公開只讀 AI 入口</p>
-    </div>
+    <h1>gonggong-ai</h1>
+    <p class="subtitle">Public Read-only AI Interface / 公開只讀 AI 入口</p>
   </header>
 
   <main>
-    <section class="notice" id="read-only-notice">
+    <section class="notice">
       <h2>Read-only Notice / 只讀聲明</h2>
-      <p><strong>This page is a public read-only AI interface.</strong></p>
+      <p><strong>This page is part of gonggong-ai, a public read-only AI interface.</strong></p>
       <p>This page is reference-only. It is not a formal repository document. It is not a 主事 decision. It is not a Task Order.</p>
       <p>It does not authorize file changes, staging, commit, push, deployment, implementation, or production.</p>
       <p>Formal repository documents and confirmed Git state from <code>gonggong-platform</code> have priority.</p>
-      <p><strong>本頁是公開只讀 AI 入口。</strong></p>
+      <p><strong>本頁屬於 gonggong-ai 公開只讀 AI 入口。</strong></p>
       <p>本頁僅供 reference-only carryover 使用。本頁不是正式 repository 文件。本頁不是主事裁示。本頁不是 Task Order。</p>
       <p>本頁不授權改檔、staging、commit、push、deployment、implementation 或 production。</p>
       <p><code>gonggong-platform</code> 的 formal repository documents 與 confirmed Git state 優先。</p>
     </section>
 
-    <section id="current-formal-baseline">
-      <h2>Current Formal Baseline / 目前正式基準</h2>
+    <section>
+      <h2>Page Status / 頁面狀態</h2>
+      <p>Public-safe reference page / reference-only.</p>
+      <p><strong>Last Reviewed:</strong> 2026-07-09</p>
+      <p><strong>Version Context:</strong> v0.3.13 public modular pages</p>
+    </section>
+
+    <section>
+      <h2>Current Public-safe Baseline / 目前 public-safe 基準</h2>
       <div class="grid">
-        <div class="item">
-          <h3>Repository</h3>
+        <div class="card">
+          <h3>Private Formal Repository</h3>
           <p><code>gonggong-platform</code></p>
-          <p class="muted">Private formal governance and work repository / 私有正式治理與工作 repository</p>
+          <p class="muted">Private formal governance and work repository / 私有正式治理與工作 repository。</p>
         </div>
-        <div class="item">
+        <div class="card">
           <h3>Latest Public-safe Commit Reference</h3>
           <p><code>cf6f909 docs: add governance carryover inputs</code></p>
         </div>
-        <div class="item">
-          <h3>Current Public-safe Status</h3>
-          <p>v0.3.12 Public AI Interface Scope Check has been conditionally adopted at Level 3.</p>
-          <p>This page is a public-safe reference interface. Its publication status, GitHub Pages setup status, and latest confirmed update must be verified in the current task context.</p>
-          <p>Any file creation, GitHub Pages setup, commit, push, or publication requires separate explicit authorization.</p>
-          <p>本頁是 public-safe 參考介面。本頁的發布狀態、GitHub Pages 設定狀態與最新確認更新，應以目前任務脈絡另行確認。</p>
-          <p>任何建檔、GitHub Pages 設定、commit、push 或公開發布，皆需另行明確授權。</p>
+        <div class="card">
+          <h3>Public Interface Status</h3>
+          <p><span class="tag orange">v0.3.13 planning context</span></p>
+          <p><code>gonggong-ai</code> is planned as a small public-safe reference page collection.</p>
+          <p>Publication status, GitHub Pages setup status, and latest confirmed update must be verified in the current task context.</p>
         </div>
       </div>
     </section>
 
-    <section id="source-priority">
+    <section>
       <h2>Source Priority / 來源優先順序</h2>
-      <ol class="priority-list">
+      <ol>
         <li>Formal repository documents in <code>gonggong-platform</code>.</li>
         <li>Confirmed Git state from <code>gonggong-platform</code>.</li>
         <li>Explicit 使用者 / 平台主人 instructions.</li>
@@ -274,137 +88,37 @@
         <li>This public read-only AI interface as reference-only carryover context.</li>
       </ol>
       <p class="muted">If this page conflicts with formal repository documents or confirmed Git state, the formal repository documents and confirmed Git state have priority.</p>
-      <p class="muted">This page may be outdated. Do not assume it is the latest state unless the current task confirms it.</p>
     </section>
 
-    <section id="role-boundary-summary">
-      <h2>Role Boundary Summary / 角色邊界摘要</h2>
+    <section>
+      <h2>Minimal Role Boundary Summary / 最小角色邊界摘要</h2>
       <div class="grid">
-        <div class="item">
+        <div class="card">
           <h3>使用者 / 平台主人</h3>
-          <p>Provides final ownership direction and human confirmation.</p>
+          <p>Provides final platform ownership direction, human confirmation, and credential control. Credentials must only be handled by the platform owner directly.</p>
         </div>
-        <div class="item">
-          <h3>主事</h3>
-          <p>Makes formal governance decisions and decides whether a task proceeds.</p>
-        </div>
-        <div class="item">
-          <h3>策事</h3>
-          <p>Organizes proposals, options, scope checks, and planning input for 主事 review.</p>
-        </div>
-        <div class="item">
-          <h3>執事 / Codex</h3>
-          <p>Executes only explicitly authorized tasks. File edits, staging, commit, push, deployment, and production require separate explicit authorization.</p>
-        </div>
-        <div class="item">
-          <h3>監察 / Auditor</h3>
-          <p>Reviews risk, protected boundaries, role-boundary confusion, and scope creep. Reports are review opinions only and are not execution commands.</p>
-        </div>
-        <div class="item">
-          <h3>知事</h3>
-          <p>Future knowledge steward role. Not currently enabled as a knowledge-base, RAG, Vector Database, NAS, or automated retrieval system.</p>
-        </div>
+        <div class="card"><h3>主事</h3><p>Reviews proposals and makes governance decisions.</p></div>
+        <div class="card"><h3>監察</h3><p>Provides risk review and governance boundary review.</p></div>
+        <div class="card"><h3>執事 / Codex</h3><p>Executes only explicitly authorized technical tasks.</p></div>
+        <div class="card"><h3>策事</h3><p>Organizes proposals, options, scope checks, and planning input.</p></div>
+        <div class="card"><h3>知事</h3><p>Future knowledge steward role. Not currently a RAG, Vector Database, NAS, or automated retrieval system.</p></div>
       </div>
     </section>
 
-    <section id="filed-milestones">
-      <h2>Filed Milestones / 已正式 commit 項目</h2>
-      <div class="item">
-        <h3>v0.3.10 Role Startup Pack Governance Carryover Inputs</h3>
-        <p><span class="tag green">Adopted</span><span class="tag green">Filed into Repo</span><span class="tag green">Committed</span></p>
-        <p><strong>Commit:</strong> <code>cf6f909 docs: add governance carryover inputs</code></p>
-        <p>Role startup prompt generation may use external Session Handoff Note as reference-only carryover input. Formal repository documents and confirmed Git state have priority.</p>
-        <p>This does not make any external Session Handoff Note a formal repository document.</p>
-      </div>
+    <section>
+      <h2>Public Page Navigation / 公開頁面導覽</h2>
+      <nav>
+        <a href="roles/chief.html">主事 / Chief</a>
+        <a href="roles/auditor.html">監察 / Auditor</a>
+        <a href="roles/executor-codex.html">執事 / Codex</a>
+        <a href="roles/planner.html">策事 / Planner</a>
+        <a href="roles/knowledge-steward.html">知事 / Knowledge Steward</a>
+        <a href="decisions.html">Decision Status</a>
+      </nav>
+      <p class="muted">These pages provide public-safe role summaries and decision status references only. They are not complete private role startup packs.</p>
     </section>
 
-    <section id="level-3-carryover">
-      <h2>Level 3 Carryover / Level 3 交接事項</h2>
-      <div class="grid">
-        <div class="item">
-          <h3>v0.3.11 Candidate / Deferred Register &amp; Review Outcome Register</h3>
-          <p><span class="tag orange">Conditional Adopt</span><span class="tag">Level 3</span><span class="tag red">Not Filed</span></p>
-          <p>External Session Handoff Note may contain Candidate / Deferred Register and Review Outcome Register as reference-only carryover sections.</p>
-        </div>
-        <div class="item">
-          <h3>v0.3.11-B Session-End Carryover Draft Review &amp; External Note Safe Update Workflow</h3>
-          <p><span class="tag orange">Conditional Adopt</span><span class="tag">Level 3</span><span class="tag red">Not Filed</span></p>
-          <p>Session-end carryover should be drafted and reviewed before any external note update. External note update requires user confirmation and a separate safe update task.</p>
-        </div>
-        <div class="item">
-          <h3>v0.3.12 Public AI Interface Scope Check</h3>
-          <p><span class="tag orange">Conditional Adopt</span><span class="tag">Level 3</span><span class="tag red">Not Filed</span></p>
-          <p><code>gonggong-ai</code> may be used as a public read-only AI interface repository. First version should be a single-page static website with public-safe, reference-only content.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="candidate-deferred-register">
-      <h2>Candidate / Deferred Register / 候選與延後事項</h2>
-      <div class="grid">
-        <div class="item">
-          <h3>Governance Proposal Review Workflow</h3>
-          <p><span class="tag">Candidate</span><span class="tag red">Not Filed</span></p>
-          <p>Proposal review workflow direction has value but is not yet filed into the repository.</p>
-        </div>
-        <div class="item">
-          <h3>MODULE_GUIDE Scope Check</h3>
-          <p><span class="tag orange">Deferred</span><span class="tag red">Not Filed</span></p>
-          <p>MODULE_GUIDE may have future value, but <code>modules/</code> is not enabled.</p>
-        </div>
-        <div class="item">
-          <h3>APP_GUIDE Scope Check</h3>
-          <p><span class="tag orange">Deferred</span><span class="tag red">Not Filed</span></p>
-          <p>APP_GUIDE may have future value, but <code>apps/</code> is not enabled.</p>
-        </div>
-        <div class="item">
-          <h3>PACKAGE_GUIDE Scope Check</h3>
-          <p><span class="tag orange">Deferred</span><span class="tag red">Not Filed</span></p>
-          <p>PACKAGE_GUIDE may have future value, but <code>packages/</code> is not enabled.</p>
-        </div>
-        <div class="item">
-          <h3>INFRASTRUCTURE_GUIDE Scope Check</h3>
-          <p><span class="tag">Future Candidate</span><span class="tag red">Not Started</span><span class="tag red">Not Filed</span></p>
-          <p>May be considered in the future, but does not authorize <code>infrastructure/</code>, Docker, PostgreSQL, NAS, RAG, deployment, production, implementation, staging, commit, or push.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="review-outcome-register">
-      <h2>Review Outcome Register / 審查結果登記</h2>
-      <div class="grid">
-        <div class="item">
-          <h3>v0.3.5 Change Impact Review</h3>
-          <p><span class="tag green">Read-only review completed</span><span class="tag red">Not Filed</span></p>
-          <p>Auditor Language Constraint was reviewed for obvious conflicts in governance documents. No immediate public-safe conflict requiring repository modification was identified.</p>
-        </div>
-        <div class="item">
-          <h3>v0.3.10-B Auditor Startup Prompt Refinement</h3>
-          <p><span class="tag green">Completed as prompt generation</span><span class="tag red">Not Filed</span></p>
-          <p>Auditor startup prompt refinement added conservative handling for unavailable documents, substance-based Hard High Risk assessment, no direct role assignment by 監察, and conservative handling of「監事」as likely colloquial wording.</p>
-        </div>
-        <div class="item">
-          <h3>v0.3.11-C Session-End Carryover Consolidation Draft</h3>
-          <p><span class="tag">Draft generation</span><span class="tag orange">Under Review</span><span class="tag red">Not Filed</span></p>
-          <p>Session-end carryover consolidation draft is a reference-only draft unless separately reviewed and approved for external note update.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="unknown-needs-confirmation">
-      <h2>Unknown / Needs Confirmation / 待確認事項</h2>
-      <ul>
-        <li>Whether the external Session Handoff Note currently contains outdated information.</li>
-        <li>Whether the external Session Handoff Note should be backed up before any update.</li>
-        <li>Whether future external note updates will be manual or handled through a separately authorized safe update task.</li>
-        <li>Whether INFRASTRUCTURE_GUIDE Scope Check will become a formal next task.</li>
-        <li>Whether Candidate / Deferred Register and Review Outcome Register should eventually become formal repository documents.</li>
-        <li>Whether this public page should be reviewed by 監察 before any future publication.</li>
-        <li>Whether <code>gonggong-ai</code> will use GitHub Pages, and if so, when the platform owner authorizes setup.</li>
-      </ul>
-    </section>
-
-    <section id="ai-startup-guidance">
+    <section>
       <h2>AI Startup Guidance / AI 啟動指引</h2>
       <p>If an AI reads this page, it should treat this page as public reference-only context.</p>
       <p>Before making governance conclusions, it should ask for or verify:</p>
@@ -415,15 +129,12 @@
         <li>user-provided task scope.</li>
       </ol>
       <p class="muted">This page may be outdated. Do not assume it is the latest state unless the current task confirms it.</p>
-      <p class="muted">Suggested next review topics are not approved execution tasks.</p>
     </section>
 
-    <section class="notice" id="non-authorization-statement">
+    <section class="notice">
       <h2>Non-Authorization Statement / 不授權聲明</h2>
       <p>This page is not a formal repository document, 主事 decision, Task Order, execution authorization, repository authorization, staging authorization, commit authorization, push authorization, deployment authorization, implementation authorization, production authorization, knowledge base, RAG system, automation system, or decision system.</p>
-      <p>This page does not authorize changes to <code>apps/</code>, <code>modules/</code>, <code>packages/</code>, <code>infrastructure/</code>, <code>config.json</code>, Docker, PostgreSQL, NAS, RAG, Vector Database, knowledge-base implementation, deployment, production, or private repository synchronization.</p>
       <p>本頁不是正式 repository 文件、主事裁示、Task Order、執行授權、repository 授權、staging 授權、commit 授權、push 授權、deployment 授權、implementation 授權、production 授權、知識庫、RAG 系統、自動化系統或決策系統。</p>
-      <p>本頁不授權修改 <code>apps/</code>、<code>modules/</code>、<code>packages/</code>、<code>infrastructure/</code>、<code>config.json</code>，也不授權 Docker、PostgreSQL、NAS、RAG、Vector Database、knowledge-base implementation、deployment、production 或 private repository synchronization。</p>
     </section>
   </main>
 

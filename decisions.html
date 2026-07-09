@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Decision Status | gonggong-ai</title>
+  <style>
+    :root { --bg:#f7f7f4; --paper:#fff; --ink:#1f2933; --muted:#5f6b76; --line:#d7dce0; --accent:#256f87; --warn:#fff7df; --warn-line:#d59d24; --soft:#eef5f7; --green:#246b4f; --orange:#8a5b16; --red:#8a2f2f; --max:1040px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--ink); background:var(--bg); line-height:1.6; }
+    header, main, footer { width:min(var(--max),calc(100% - 32px)); margin:24px auto; }
+    header, section { background:var(--paper); border:1px solid var(--line); border-radius:8px; padding:22px; }
+    section { margin:18px 0; }
+    h1 { margin:0; font-size:2rem; letter-spacing:0; }
+    h2 { margin:0 0 12px; font-size:1.25rem; letter-spacing:0; }
+    h3 { margin:18px 0 6px; font-size:1.05rem; letter-spacing:0; }
+    p { margin:8px 0; }
+    a { color:var(--accent); }
+    code { background:#eef1f3; padding:0.12rem 0.3rem; border-radius:4px; }
+    .notice { background:var(--warn); border-color:var(--warn-line); }
+    .muted, footer { color:var(--muted); }
+    .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; }
+    .card { border:1px solid var(--line); border-radius:8px; padding:14px; background:#fbfcfc; }
+    .tag { display:inline-block; margin:3px 4px 3px 0; padding:3px 8px; border-radius:999px; background:var(--soft); font-size:0.85rem; font-weight:600; }
+    .green { color:var(--green); background:#e7f3ed; }
+    .orange { color:var(--orange); background:#fff1d9; }
+    .red { color:var(--red); background:#f9e7e7; }
+    nav a { display:inline-block; margin:4px 8px 4px 0; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Decision Status / 公開決策狀態</h1>
+    <p class="muted">Public-safe decision status list for gonggong-ai.</p>
+  </header>
+
+  <main>
+    <section class="notice">
+      <h2>Page Notice / 頁面聲明</h2>
+      <p>This page is part of gonggong-ai, a public read-only AI interface.</p>
+      <p>This page is reference-only. It is not a formal repository document. It is not a 主事 decision. It is not a Task Order.</p>
+      <p>It does not authorize file changes, staging, commit, push, deployment, implementation, or production.</p>
+      <p>Formal repository documents and confirmed Git state from <code>gonggong-platform</code> have priority.</p>
+      <p>本頁屬於 gonggong-ai 公開只讀 AI 入口。本頁僅供 reference-only carryover 使用，不是正式 repository 文件、主事裁示或 Task Order。</p>
+    </section>
+
+    <section>
+      <h2>Page Status / 頁面狀態</h2>
+      <p>Public-safe reference page / reference-only.</p>
+      <p><strong>Last Reviewed:</strong> 2026-07-09</p>
+      <p><strong>Version Context:</strong> v0.3.13 public modular pages</p>
+    </section>
+
+    <section>
+      <h2>Source Priority / 來源優先順序</h2>
+      <ol>
+        <li>Formal repository documents in <code>gonggong-platform</code>.</li>
+        <li>Confirmed Git state from <code>gonggong-platform</code>.</li>
+        <li>Explicit 使用者 / 平台主人 instructions.</li>
+        <li>Explicit 主事 decisions.</li>
+        <li>This public decision status page as reference-only public context.</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Public Governance Decisions / 公開治理狀態</h2>
+      <p>This page lists public-safe decision summaries only. It does not include full private proposals, full auditor reports, full task orders, or full internal discussion.</p>
+      <p>This page lists public-safe decision status only. It is not the complete formal decision record.</p>
+      <p>本頁只列 public-safe 的決策狀態摘要，不是完整正式決策紀錄。</p>
+    </section>
+
+    <section>
+      <h2>Decision Status Legend / 狀態說明</h2>
+      <ul>
+        <li><span class="tag green">Adopted / Filed / Committed</span> means a public-safe summary indicates the item has been committed into the formal repository.</li>
+        <li><span class="tag orange">Conditional Adopt</span> means direction accepted with conditions; it is not execution authorization.</li>
+        <li><span class="tag red">Not Filed into gonggong-platform</span> means the item is not filed into the private formal governance repository.</li>
+        <li><span class="tag red">Not Filed into gonggong-platform</span> 表示該事項尚未寫入私有正式治理 repository。</li>
+        <li><span class="tag">Candidate</span> means possible future value; not an active task.</li>
+        <li><span class="tag orange">Deferred</span> means discussed but not active.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Decision List / 決策清單</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>v0.3.10 Role Startup Pack Governance Carryover Inputs</h3>
+          <p><span class="tag green">Adopted</span><span class="tag green">Filed</span><span class="tag green">Committed</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> Yes</p>
+          <p><strong>Commit:</strong> <code>cf6f909 docs: add governance carryover inputs</code></p>
+          <p>Role startup prompts may use carryover inputs as reference-only context.</p>
+        </div>
+
+        <div class="card">
+          <h3>v0.3.12 Public AI Interface Scope Check</h3>
+          <p><span class="tag orange">Conditional Adopt</span><span class="tag green">Completed</span><span class="tag red">Not Filed into gonggong-platform</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> No</p>
+          <p><code>gonggong-ai</code> may serve as a public read-only AI interface.</p>
+        </div>
+
+        <div class="card">
+          <h3>v0.3.12-F GitHub Pages Setup</h3>
+          <p><span class="tag green">Public-side completed</span><span class="tag red">Not Filed into gonggong-platform</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> No</p>
+          <p>First public read-only AI interface page is available through GitHub Pages.</p>
+        </div>
+
+        <div class="card">
+          <h3>v0.3.13 Public Modular Pages Scope Check</h3>
+          <p><span class="tag orange">Conditional Adopt</span><span class="tag">Level 3 Completed</span><span class="tag red">Not Filed into gonggong-platform</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> No</p>
+          <p><code>gonggong-ai</code> may be planned as a small public-safe reference page collection.</p>
+        </div>
+
+        <div class="card">
+          <h3>Governance Proposal Review Workflow</h3>
+          <p><span class="tag">Candidate</span><span class="tag red">Not Filed into gonggong-platform</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> No</p>
+          <p>Has planning value but is not filed into the repository.</p>
+        </div>
+
+        <div class="card">
+          <h3>MODULE_GUIDE Scope Check</h3>
+          <p><span class="tag orange">Deferred</span><span class="tag red">Not Filed into gonggong-platform</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> No</p>
+          <p>Future consideration only. <code>modules/</code> is not enabled.</p>
+        </div>
+
+        <div class="card">
+          <h3>APP_GUIDE Scope Check</h3>
+          <p><span class="tag orange">Deferred</span><span class="tag red">Not Filed into gonggong-platform</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> No</p>
+          <p>Future consideration only. <code>apps/</code> is not enabled.</p>
+        </div>
+
+        <div class="card">
+          <h3>PACKAGE_GUIDE Scope Check</h3>
+          <p><span class="tag orange">Deferred</span><span class="tag red">Not Filed into gonggong-platform</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> No</p>
+          <p>Future consideration only. <code>packages/</code> is not enabled.</p>
+        </div>
+
+        <div class="card">
+          <h3>INFRASTRUCTURE_GUIDE Scope Check</h3>
+          <p><span class="tag">Future Candidate</span><span class="tag red">Not Started</span><span class="tag red">Not Filed into gonggong-platform</span></p>
+          <p><strong>Filed into gonggong-platform:</strong> No</p>
+          <p>Future consideration only. Does not authorize infrastructure, deployment, Docker, PostgreSQL, NAS, RAG, or production.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Must Not Be Interpreted As / 不得誤解為</h2>
+      <ul>
+        <li>Formal repository document.</li>
+        <li>主事 decision itself.</li>
+        <li>Task Order.</li>
+        <li>File creation, file modification, staging, commit, push, deployment, implementation, or production authorization.</li>
+        <li>Authorization to enable <code>apps/</code>, <code>modules/</code>, <code>packages/</code>, or <code>infrastructure/</code>.</li>
+        <li>Authorization to implement Docker, PostgreSQL, NAS, RAG, Vector Database, knowledge-base implementation, automation, or private repository sync.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Related Pages</h2>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="roles/chief.html">主事 / Chief</a>
+        <a href="roles/auditor.html">監察 / Auditor</a>
+        <a href="roles/executor-codex.html">執事 / Codex</a>
+        <a href="roles/planner.html">策事 / Planner</a>
+        <a href="roles/knowledge-steward.html">知事 / Knowledge Steward</a>
+      </nav>
+    </section>
+
+    <section class="notice">
+      <h2>Non-Authorization Statement / 不授權聲明</h2>
+      <p>This page is not a formal repository document, 主事 decision, Task Order, execution authorization, repository authorization, staging authorization, commit authorization, push authorization, deployment authorization, implementation authorization, production authorization, knowledge base, RAG system, automation system, or decision system.</p>
+      <p>本頁不是正式 repository 文件、主事裁示、Task Order、執行授權、repository 授權、staging 授權、commit 授權、push 授權、deployment 授權、implementation 授權、production 授權、知識庫、RAG 系統、自動化系統或決策系統。</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>gonggong-ai public read-only AI interface. Manual update only. Public-safe content only.</p>
+  </footer>
+</body>
+</html>
